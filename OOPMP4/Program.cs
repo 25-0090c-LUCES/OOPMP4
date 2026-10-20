@@ -1,7 +1,7 @@
 ﻿namespace OOPMP4
 {
     internal class Program
-    {
+    {//gitpush
         static void Main(string[] args)
         {
             bool running = true;
