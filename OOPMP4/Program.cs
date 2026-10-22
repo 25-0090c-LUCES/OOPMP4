@@ -1,7 +1,9 @@
 ﻿namespace OOPMP4
 {
+    using System.Threading;
     internal class Program
-    {//git
+    {
+
         static void Main(string[] args)
         {
             bool running = true;
@@ -85,7 +87,6 @@ Press any key to return to the menu.
         static void StartGame()
         {
             Console.Clear();
-
             Random RNG = new Random();
             Random RNG2 = new Random();
             Random RNG3 = new Random();
@@ -120,13 +121,15 @@ Press any key to return to the menu.
             }
             RandomNums = $"{Rn1}{Rn2}{Rn3}";
 
-            
+
             int attempts = 0;
             int maxattempts = 6;
-        
+
 
             while (attempts < maxattempts)
             {
+                Console.WriteLine(RandomNums);
+
 
                 int correctnum = 0;
                 int correctpos = 0;
@@ -155,28 +158,30 @@ Press any key to return to the menu.
                 }
                 Console.WriteLine("Correct Position: " + correctpos);
                 attempts++;
-                
-                if (attempts > maxattempts)
-                {
-                    Console.WriteLine("\nLimit of Attempts Reached. The correct number was: " + RandomNums);
-                    Console.WriteLine("Thank you for playing. Try Again");
-                    Console.ReadKey();
-                }
-                if(correctpos == 3)
+
+                if (correctpos == 3)
                 {
                     Console.WriteLine("Woah Amazing! You Guessed the correct number: " + RandomNums);
                     Console.WriteLine("Press any key to play again.");
                     Console.ReadKey();
                     break;
-                    
+
+                }
+                if (attempts == maxattempts)
+                {
+                    Console.WriteLine("\nLimit of Attempts Reached. The correct number was: " + RandomNums);
+                    Console.WriteLine("Thank you for playing. Try Again");
+                    Console.ReadKey();
+                    break;
                 }
 
             }
-            
-           
+        
         }
 
     }
 
 }
+
+
 
